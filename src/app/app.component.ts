@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'heroes';
+/* Propiedad utilizada para el título de la página */
+  title = 'Tour  of heroes';
+
+/* Se peuden definir las propiedades a voluntad e imprimirlas en el HTML */
+  hola = '¡Hola soy una propiedad!';
 }

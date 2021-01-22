@@ -1,0 +1,37 @@
+<!-- 
+Una vez creada la interfase, se importan las propiedad con la sintaxis de punto, parecido a la manera en que se traen los datos en un JSON.
+-->
+
+<!-- 
+    hero - hace referencia a la propiedad
+    . - concatena
+    name - se trae el valor "name" de la propiedad hero.
+
+    Se utiliza el pipe | uppercase para transformarlo a mayúsculas.
+-->
+<h2>{{hero.name | uppercase}} Detalles:</h2>
+<p><b>ID:</b> {{hero.id}}.</p>
+<p><b>Nombre</b> {{hero.name}}</p>
+<p><b>Elemento: </b>{{hero.element}}</p>
+
+<h2>Cambiando el nombre del héroe</h2>
+<div>
+    <label for="">
+        <b>Nuevo nombre: </b>
+
+<!--
+    ngModel
+    Es una directiva de ANgular, y par autilizarla se necesita importar FormsModule de @angular/forms
+
+    Es una two-way binding (Enlace de doble sentido) la cual además de agregar el valor del input, permite modificar la información de name dentro de la propiedad hero en tiempo real.
+-->
+        <input [(ngModel)]="hero.name" type="text" placeholder="Nuevo nombre">
+    </label>
+</div>
+
+<div>
+    <label for="">
+        <b>Elemento: </b>
+        <input [(ngModel)]="hero.element" type="text" placeholder="Nuevo nombre">
+    </label>
+</div>
