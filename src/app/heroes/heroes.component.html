@@ -36,7 +36,8 @@ Una vez creada la interfase, se importan las propiedad con la sintaxis de punto,
     </label>
 </div>
 
-<h2>Lista de Héroes</h2>
+<hr>
+
 <ul class="heroes">
 <!--
     *ngFor: se utiliza para crear un loop y traer información almacenada en algún lugar, ya sea un arreglo o un Json
@@ -48,13 +49,35 @@ Una vez creada la interfase, se importan las propiedad con la sintaxis de punto,
     (click): indica que el evento se debe disparar al hacer click.
     onSelect: Es la expresi{on que contiene el código a ejecutar al hacer click.
 
+    class.selected: agrega una clase llamada selected cuando hero (El elemento con la informaciónd e héroes) recibe el llamado de selectedHeroe al hacerle click
+
 -->
-    <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+    <li
+        *ngFor="let hero of heroes"
+        (click)="onSelect(hero)"
+        [class.selected]="hero === selectedHero"
+        >
 
 <!-- Una vez inicializado el loop, se puede crear cualquier etiqueta HTML e incrustar ahí la información necesaria. -->
         <span class="badge">{{hero.id}}</span> {{hero.name}} {{hero.element}}
     </li>
 </ul>
+
+<!--
+    Se crea una sección que muestra el nombre del héroe seleccionado en base a la lista anterior.
+
+    Es necesario utilizar ngIf de lo contrario, la aplicaicón no encontrará el valor del selectedHero y marcará un error, asi le decimos que si selectedHero esta seleccionao o "existe", se muestre la informaicón.
+-->
+<section *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}}</h2>
+    <p><b>id: </b>{{selectedHero.id}}</p>
+    
+
+    <h3>Nombre:</h3>
+    <p>{{selectedHero.name}}</p>
+</section>
+
+<h2>Lista de Héroes</h2>
 
 <table>
     <tbody>

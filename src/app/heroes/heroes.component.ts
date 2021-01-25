@@ -24,12 +24,22 @@ Se deben utilizar todas los tipos marcados en hero.ts, de lo contrario se marcar
 
 /*
 Se define una nueva propiedad para poder mostrar la lista demo de Héroes
-heroes: nombre de la propiedad.S
+heroes: nombre de la propiedad.
 HEROES: Array creado en mock-heroes.ts el cual trae la lista de héroes.
 */
   heroes = HEROES;
 
-  selectedHero: Hero;
+ /*
+Se define el tipo selectedHero basado en la interface Hero.
+
+ onSelect: es un método de Angular que se refiere al elemento cuando se selecciona.
+ void: como la función no regresanada, se utiliza void para delimitarlo.
+ this: serefiere al alemento individual de la lista. Es como un querySelector de javascript.
+ selectedHero: hace referencia al tipo SelectedHero declarado arriba,
+ hero: hace referencia al tipo hero declarado arriba que contiene los datos que se van a mostrar.
+ */
+
+  selectedHero: Hero; 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
