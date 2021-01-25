@@ -35,3 +35,33 @@ Una vez creada la interfase, se importan las propiedad con la sintaxis de punto,
         <input [(ngModel)]="hero.element" type="text" placeholder="Nuevo nombre">
     </label>
 </div>
+
+<h2>Lista de Héroes</h2>
+<ul class="heroes">
+<!--
+    *ngFor: se utiliza para crear un loop y traer información almacenada en algún lugar, ya sea un arreglo o un Json
+
+    let: inicia la variable
+    hero: se refiere al tipo que jala de la interface Hero, y que tiene la información de todos los héroes.
+    heroes: es la lista de héroes almacenadas en un array.
+
+    (click): indica que el evento se debe disparar al hacer click.
+    onSelect: Es la expresi{on que contiene el código a ejecutar al hacer click.
+
+-->
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+
+<!-- Una vez inicializado el loop, se puede crear cualquier etiqueta HTML e incrustar ahí la información necesaria. -->
+        <span class="badge">{{hero.id}}</span> {{hero.name}} {{hero.element}}
+    </li>
+</ul>
+
+<table>
+    <tbody>
+        <tr *ngFor="let hero of heroes">
+            <td>{{hero.id}}</td>
+            <td>{{hero.name}}</td>
+            <td>{{hero.element}}</td>
+        </tr>
+    </tbody>
+</table>
