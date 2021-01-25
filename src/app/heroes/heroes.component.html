@@ -64,18 +64,14 @@ Una vez creada la interfase, se importan las propiedad con la sintaxis de punto,
 </ul>
 
 <!--
-    Se crea una sección que muestra el nombre del héroe seleccionado en base a la lista anterior.
+    Se separa la funcionalidad para mostrar lso héroes en un componente aparte para su mejor manejo.
 
-    Es necesario utilizar ngIf de lo contrario, la aplicaicón no encontrará el valor del selectedHero y marcará un error, asi le decimos que si selectedHero esta seleccionao o "existe", se muestre la informaicón.
+    [hero]: es una propiedad de enlace (binding) de angular de un solo sentido, donde hero es la propiedad y selectedHero
+    selectedHero es la acción que realiza. Se enfrasca toda la funcionalida dne todo el componente la cual toma el hero del componente hijo.
+
+    El binding permite controlar al componente hijo desd el padre.
 -->
-<section *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}}</h2>
-    <p><b>id: </b>{{selectedHero.id}}</p>
-    
-
-    <h3>Nombre:</h3>
-    <p>{{selectedHero.name}}</p>
-</section>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 <h2>Lista de Héroes</h2>
 

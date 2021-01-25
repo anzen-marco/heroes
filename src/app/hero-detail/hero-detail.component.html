@@ -1,0 +1,12 @@
+<!--
+    Se crea una sección que muestra el nombre del héroe seleccionado en base a la lista anterior.
+
+    Es necesario utilizar ngIf de lo contrario, la aplicaicón no encontrará el valor del selectedHero y marcará un error, asi le decimos que si selectedHero esta seleccionao o "existe", se muestre la informaicón.
+-->
+<section *ngIf="hero">
+    <h2>{{hero.name | uppercase}}</h2>
+    <p><b>id: </b>{{hero.id}}</p>
+    
+    <h3>Nombre:</h3>
+    <p>{{hero.name}}</p>
+</section>
