@@ -1,0 +1,14 @@
+<!--
+    Este templete jala el servicio meessage y lo incrusta aquí. de esta amnera, se separa la lógica del componente.
+-->
+
+<!-- Sespliega los mensajes si hay alguino que mostrar. -->
+<div *ngIf="messageService.messages.length">
+    <h2>{{titulo}}</h2>
+
+<!-- El botón esa unido al método clear() creado en el servicio messages -->
+    <button class="clear" (click)="messageService.clear()">Borrar</button>
+
+<!-- Regresa los mensajes envueltos en <p> -->
+    <p *ngFor='let message of messageService.messages'>{{message}}</p>
+</div>
